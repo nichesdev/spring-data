@@ -3,6 +3,7 @@ package com.nixs.spring_api_rest.controller;
 
 import com.nixs.spring_api_rest.database.model.ProdutoModel;
 import com.nixs.spring_api_rest.dto.ProdutoDto;
+import com.nixs.spring_api_rest.exception.NotFoundException;
 import com.nixs.spring_api_rest.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class ProdutoController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ProdutoModel updateProduct(@PathVariable Integer id,
-                                      @RequestBody ProdutoDto produtoDto) {
+                                      @RequestBody ProdutoDto produtoDto) throws NotFoundException {
         return produtoService.atualizarProduto(produtoDto, id);
     }
 

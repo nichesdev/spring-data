@@ -2,6 +2,7 @@ package com.nixs.spring_api_rest.service;
 
 import com.nixs.spring_api_rest.database.model.ProdutoModel;
 import com.nixs.spring_api_rest.dto.ProdutoDto;
+import com.nixs.spring_api_rest.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -58,11 +59,11 @@ public class ProdutoService {
         return novoProduto;
     }
 
-    public ProdutoModel atualizarProduto (ProdutoDto produtoDto, Integer id) {
+    public ProdutoModel atualizarProduto (ProdutoDto produtoDto, Integer id) throws NotFoundException {
         ProdutoModel produto = PRODUTOS.stream()
                 .filter(p -> p.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+                .orElseThrow(() -> new NotFoundException("Produto não encontrado"));
 
         produto.setNome(produtoDto.getNome());
         produto.setPreco(produtoDto.getPreco());
