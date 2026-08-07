@@ -2,13 +2,11 @@ package com.nixs.spring_api_rest.controller;
 
 
 import com.nixs.spring_api_rest.database.model.ProdutoModel;
+import com.nixs.spring_api_rest.dto.ProdutoDto;
 import com.nixs.spring_api_rest.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +22,10 @@ public class ProdutoController {
     public List<ProdutoModel> findAll() {
         return ProdutoService.findAll();
     }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProdutoModel createProduct(@RequestBody ProdutoDto produtoDto) {
+        return produtoService.createProduct(produtoDto);
+    }
+
 }
