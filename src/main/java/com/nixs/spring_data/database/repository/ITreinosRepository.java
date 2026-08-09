@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ITreinosRepository extends JpaRepository<TreinosEntity, Integer> {
 
-    Optional<TreinosEntity> findByIdNomeAndAlunoId(String nome, Integer alunoId);
+    Optional<TreinosEntity> findByNomeAndAlunoId(String nome, Integer alunoId);
 }

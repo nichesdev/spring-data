@@ -2,6 +2,7 @@ package com.nixs.spring_data.database.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Set;
 @Table(name= "treinos")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TreinosEntity {
 
     @Id
@@ -21,8 +23,8 @@ public class TreinosEntity {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "alunos_id")
-    private AlunosEntity alunos;
+    @JoinColumn(name = "aluno_id")
+    private AlunosEntity aluno;
 
     @ManyToMany
     @JoinTable(

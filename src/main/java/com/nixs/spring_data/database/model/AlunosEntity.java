@@ -28,6 +28,6 @@ public class AlunosEntity {
     @JoinColumn (name = "avaliacao_fisica_id")
     private AvaliacoesFisicasEntity avaliacoesFisica;
     // Padrão do One to Many é LAZY
-    @OneToMany(mappedBy = "alunos", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "aluno", fetch = FetchType.LAZY)
     private Set<TreinosEntity> treinos = new HashSet<>();
 }
