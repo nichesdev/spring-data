@@ -3,6 +3,7 @@ package com.nixs.spring_data.database.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -13,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 public class TreinosEntity {
 
     @Id
@@ -33,4 +35,5 @@ public class TreinosEntity {
             inverseJoinColumns = @JoinColumn(name = "exercicio_id")
     )
     private Set<ExcerciciosEntity> exercicios = new HashSet<>();
+
 }

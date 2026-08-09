@@ -7,6 +7,7 @@ import com.nixs.spring_data.exception.NotFoundException;
 import com.nixs.spring_data.service.AvaliacaofisicaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +32,11 @@ public class AvaliacoesFisicasController {
     @ResponseStatus(HttpStatus.OK)
     public List<AvaliacoesFisicasProjection> getAllAvaliacoes(){
         return avaliacoesFisicasService.getAllAvaliacoes();
+    }
+
+    @GetMapping("/page/{page}/size/{size}")
+    @ResponseStatus(HttpStatus.OK)
+    public Page<AvaliacoesFisicasProjection> getAllAvaliacoesPageable(@PathVariable Integer page, @PathVariable Integer size){
+        return avaliacoesFisicasService.getgetAllAvaliacoesPageable(page, size);
     }
 }

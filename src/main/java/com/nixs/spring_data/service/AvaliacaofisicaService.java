@@ -10,8 +10,11 @@ import com.nixs.spring_data.dto.AvaliacoesFisicasProjection;
 import com.nixs.spring_data.exception.BadRequestException;
 import com.nixs.spring_data.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Service
@@ -42,5 +45,9 @@ public class AvaliacaofisicaService {
 
     public List<AvaliacoesFisicasProjection> getAllAvaliacoes(){
         return avaliacoesFisicasRepository.getAllAvaliacoes();
+    }
+
+    public Page<AvaliacoesFisicasProjection> getgetAllAvaliacoesPageable(Integer page, Integer size){
+        return avaliacoesFisicasRepository.getAllAvaliacoesPageable(PageRequest.of(page, size));
     }
 }

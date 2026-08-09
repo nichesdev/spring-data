@@ -2,11 +2,11 @@ package com.nixs.spring_data.database.repository;
 
 import com.nixs.spring_data.database.model.AvaliacoesFisicasEntity;
 import com.nixs.spring_data.dto.AvaliacoesFisicasProjection;
-import org.hibernate.query.Page;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.NativeQuery;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface IAvaliacoesFisicasRepository extends JpaRepository<AvaliacoesFisicasEntity, Integer> {
@@ -37,10 +37,10 @@ public interface IAvaliacoesFisicasRepository extends JpaRepository<AvaliacoesFi
         ON a.avaliacao_fisica_id = af.id
         """,
     countQuery = """
-        SELECT count(*)
+        SELECT count(af.id)
         FROM avaliacoes_fisicas af
         INNER JOIN alunos a
-        ON a.avaliacoes_fisicas_id = af.id
+        ON a.avaliacao_fisica_id = af.id
         """)
-    Page<AvaliacoesFisicasProjection> getAllAvaliacoesPage(Pageable pageable);
+    Page<AvaliacoesFisicasProjection> getAllAvaliacoesPageable(Pageable pageable);
 }
