@@ -1,8 +1,10 @@
 package com.nixs.spring_data.controller;
 
 
+import com.nixs.spring_data.database.model.AvaliacoesFisicasEntity;
 import com.nixs.spring_data.dto.AlunoDto;
 import com.nixs.spring_data.exception.BadRequestException;
+import com.nixs.spring_data.exception.NotFoundException;
 import com.nixs.spring_data.service.AlunoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,11 @@ public class AlunosController {
     @ResponseStatus(HttpStatus.CREATED)
     public void criarAluno(@Valid @RequestBody AlunoDto alunoDto) throws BadRequestException {
         alunoService.criarAluno(alunoDto);
+    }
+
+    @GetMapping("/{alunoId}/avaliacao")
+    public AvaliacoesFisicasEntity getAvaliacaoFisica(@PathVariable Integer alunoId) throws NotFoundException {
+        return alunoService.getAlunoAvaliacao(alunoId);
     }
 }
 

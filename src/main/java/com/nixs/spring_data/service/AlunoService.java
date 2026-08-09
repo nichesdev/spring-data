@@ -1,9 +1,11 @@
 package com.nixs.spring_data.service;
 
 import com.nixs.spring_data.database.model.AlunosEntity;
+import com.nixs.spring_data.database.model.AvaliacoesFisicasEntity;
 import com.nixs.spring_data.database.repository.IAlunosRepository;
 import com.nixs.spring_data.dto.AlunoDto;
 import com.nixs.spring_data.exception.BadRequestException;
+import com.nixs.spring_data.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,15 @@ public class AlunoService {
                 .nome(alunoDto.getNome())
                 .email(alunoDto.getEmail())
                 .build());
+    }
+    public AvaliacoesFisicasEntity getAlunoAvaliacao (Integer alunoId) throws NotFoundException {
+        AlunosEntity aluno = alunosRepository.findByIdFetch(alunoId)
+                .orElseThrow(() -> new NotFoundException("Alunos não encontrado"));
+
+        AvaliacoesFisicasEntity avaliacao = aluno.getAvaliacoesFisica();
+        if (avaliacao == null){
+            throw new NotFoundException("Avaliação Fisica não encontrada para este aluno");
+        }
+        return avaliacao;
     }
 }

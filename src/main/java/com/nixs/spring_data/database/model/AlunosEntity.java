@@ -23,10 +23,11 @@ public class AlunosEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    // Padrão de One to One é EAGER
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn (name = "avaliacao_fisica_id")
     private AvaliacoesFisicasEntity avaliacoesFisica;
-
-    @OneToMany(mappedBy = "alunos")
+    // Padrão do One to Many é LAZY
+    @OneToMany(mappedBy = "alunos", fetch = FetchType.LAZY)
     private Set<TreinosEntity> treinos = new HashSet<>();
 }
