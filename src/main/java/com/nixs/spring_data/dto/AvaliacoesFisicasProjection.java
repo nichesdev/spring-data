@@ -10,6 +10,5 @@ public interface AvaliacoesFisicasProjection {
     Integer getIdAvaliacao();
     BigDecimal getPeso();
     BigDecimal getAltura();
-    BigDecimal getPercentualGorduraCorporal();
-
+    BigDecimal getPorcentagemGorduraCorporal();
 }
