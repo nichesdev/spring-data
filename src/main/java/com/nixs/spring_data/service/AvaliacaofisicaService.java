@@ -6,10 +6,13 @@ import com.nixs.spring_data.database.model.AvaliacoesFisicasEntity;
 import com.nixs.spring_data.database.repository.IAlunosRepository;
 import com.nixs.spring_data.database.repository.IAvaliacoesFisicasRepository;
 import com.nixs.spring_data.dto.AvaliacaoFisicaDto;
+import com.nixs.spring_data.dto.AvaliacoesFisicasProjection;
 import com.nixs.spring_data.exception.BadRequestException;
 import com.nixs.spring_data.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -35,5 +38,9 @@ public class AvaliacaofisicaService {
 
         aluno.setAvaliacoesFisica(avaliacoesFisica);
         alunosRepository.save(aluno);
+    }
+
+    public List<AvaliacoesFisicasProjection> getAllAvaliacoes(){
+        return avaliacoesFisicasRepository.getAllAvaliacoes();
     }
 }
