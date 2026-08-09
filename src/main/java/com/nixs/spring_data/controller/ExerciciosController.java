@@ -1,9 +1,9 @@
-package com.nixs.spring_api_rest.controller;
+package com.nixs.spring_data.controller;
 
 
-import com.nixs.spring_api_rest.database.model.ExcerciciosEntity;
-import com.nixs.spring_api_rest.dto.ExercicioDto;
-import com.nixs.spring_api_rest.service.ExerciciosService;
+import com.nixs.spring_data.database.model.ExcerciciosEntity;
+import com.nixs.spring_data.dto.ExercicioDto;
+import com.nixs.spring_data.service.ExerciciosService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

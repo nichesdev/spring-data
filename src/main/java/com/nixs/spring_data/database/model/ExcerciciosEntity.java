@@ -1,4 +1,4 @@
-package com.nixs.spring_api_rest.database.model;
+package com.nixs.spring_data.database.model;
 
 import jakarta.persistence.*;
 import lombok.*;

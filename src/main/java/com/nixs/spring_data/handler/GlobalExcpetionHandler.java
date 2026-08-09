@@ -1,7 +1,7 @@
-package com.nixs.spring_api_rest.handler;
+package com.nixs.spring_data.handler;
 
-import com.nixs.spring_api_rest.exception.ErrorResponse;
-import com.nixs.spring_api_rest.exception.NotFoundException;
+import com.nixs.spring_data.exception.ErrorResponse;
+import com.nixs.spring_data.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

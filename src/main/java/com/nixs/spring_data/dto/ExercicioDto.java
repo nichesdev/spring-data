@@ -1,4 +1,4 @@
-package com.nixs.spring_api_rest.dto;
+package com.nixs.spring_data.dto;
 
 
 import jakarta.validation.constraints.NotBlank;

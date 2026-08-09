@@ -1,4 +1,4 @@
-package com.nixs.spring_api_rest.exception;
+package com.nixs.spring_data.exception;
 
 import lombok.*;
 
