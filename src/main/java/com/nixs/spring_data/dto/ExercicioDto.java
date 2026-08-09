@@ -14,6 +14,7 @@ public class ExercicioDto {
 
     @NotBlank //Nula nem vazia
     private String nome;
+    @NotBlank
     private String grupoMuscular;
 }
 
