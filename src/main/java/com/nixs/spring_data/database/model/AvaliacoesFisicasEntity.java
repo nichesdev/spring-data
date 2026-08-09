@@ -1,8 +1,7 @@
 package com.nixs.spring_data.database.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -10,6 +9,9 @@ import java.math.BigDecimal;
 @Table(name= "avaliacoes_fisicas")
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
+@Builder
 public class AvaliacoesFisicasEntity {
 
     @Id

@@ -1,8 +1,7 @@
 package com.nixs.spring_data.database.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +10,9 @@ import java.util.Set;
 @Table(name= "alunos")
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
+@Builder
 public class AlunosEntity {
 
     @Id
@@ -21,7 +23,7 @@ public class AlunosEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "avaliacao_fisica_id")
     private AvaliacoesFisicasEntity avaliacoesFisica;
 
